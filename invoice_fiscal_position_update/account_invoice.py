@@ -28,7 +28,7 @@ from openerp import models, api, _
 class account_invoice(models.Model):
     _inherit = "account.invoice"
 
-    @api.onchange('fiscal_position')
+    @api.onchange('fiscal_position', 'ind_final')
     def fiscal_position_change(self):
         """Updates taxes and accounts on all invoice lines"""
         self.ensure_one()
@@ -53,7 +53,9 @@ class account_invoice(models.Model):
                 if fp:
                     account = fp.map_account(account)
                     taxes = fp.map_tax(taxes)
-
+                    
+                line.fiscal_position = fp
+                line.cfop_id = fp.cfop_id
                 line.invoice_line_tax_id = [(6, 0, taxes.ids)]
                 line.account_id = account.id
             else:
