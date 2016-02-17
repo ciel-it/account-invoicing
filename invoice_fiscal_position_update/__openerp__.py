@@ -39,7 +39,9 @@ a warning is displayed to the user in this case.
     'author': "Julius Network Solutions,"
               "Akretion,"
               "Odoo Community Association (OCA)",
-    'depends': ['account'],
-    'data': [],
+    'depends': ['account', 'l10n_br_account_product'],
+    'data': [
+        'views/account_invoice_view.xml',
+    ],
     'installable': True,
 }
