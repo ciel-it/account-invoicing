@@ -45,7 +45,7 @@
         'test/make_remaining_invoice.yml',
     ],
     'demo': [],
-    'installable': False,
-    'active': False,
+    'installable': True,
+    'active': True,
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
